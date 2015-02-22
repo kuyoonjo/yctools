@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # project name
-project(yctool)
+project(yctools)
 
 # setup version numbers
 set(VERSION_MAJOR 1)
@@ -65,6 +65,7 @@ set(SRCROOT src)
 set(YCTOOL_SRC
     ${SRCROOT}/yctools/Any.cpp
     ${SRCROOT}/yctools/AnyException.cpp
+    ${SRCROOT}/yctools/Random.cpp
 )
 source_group("" FILES ${YCTOOL_SRC})
 
@@ -72,6 +73,9 @@ source_group("" FILES ${YCTOOL_SRC})
 set(YCTOOL_INC
     ${INCROOT}/yctools/Any.h
     ${INCROOT}/yctools/AnyException.h
+    ${INCROOT}/yctools/Config.h
+    ${INCROOT}/yctools/Export.h
+    ${INCROOT}/yctools/Random.h
 )
 source_group("" FILES ${YCTOOL_INC})
 
@@ -92,7 +96,7 @@ if(OSX_FRAMEWORK)
         ${OUTPUT} PROPERTIES
         FRAMEWORK TRUE
         FRAMEWORK_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
-        MACOSX_FRAMEWORK_IDENTIFIER ie.itcarlow.yuchen.dsf
+        MACOSX_FRAMEWORK_IDENTIFIER ie.itcarlow.yuchen.yctools
         MACOSX_FRAMEWORK_SHORT_VERSION_STRING ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
         MACOSX_FRAMEWORK_BUNDLE_VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
         PUBLIC_HEADER "${YCTOOL_INC}"
